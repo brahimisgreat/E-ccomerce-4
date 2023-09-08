@@ -1,6 +1,6 @@
-import './TopNav.css';
+import './_top-nav.scss';
 
-function TopNav (){
+const TopNav = ()=>{
 
     return(
         <div>
