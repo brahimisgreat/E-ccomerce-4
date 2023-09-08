@@ -16,7 +16,7 @@
   
   .inp-container input{
     display: inline-block;
-    width: 90%;
+    width: 75%;
     height: 2.5em;
   }
   .inp-container button{
@@ -24,5 +24,15 @@
     height: 2.5em;
     border: none;
     background-color: #dadada;
+  }
+  
+  .dropdown{
+    width: 15%;
+  }
+  .select-btn{
+    height: 2.5em;
+    border: none;
+    background-color: #dadada;
+    font-weight: 600;
   }
   
