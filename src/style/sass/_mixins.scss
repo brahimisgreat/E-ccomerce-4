@@ -20,3 +20,29 @@
         }
     }
 }
+
+@mixin style-reset-a-li{
+    a{
+        text-decoration: none;
+        color: black;
+        &:hover{
+            color: black;
+        }
+    }
+    li{
+        list-style-type: none;
+    }
+}
+
+@mixin style-reset-a-li{
+    a{
+        text-decoration: none;
+        color: black;
+        &:hover{
+            color: black;
+        }
+    }
+    li{
+        list-style-type: none;
+    }
+}
