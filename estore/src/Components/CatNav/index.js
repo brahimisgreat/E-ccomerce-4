@@ -17,6 +17,7 @@ const CatNav = ()=>{
                 <ul>
                     {
                         categories.map((category)=>{
+                            if(category.parent_category_id === null)
                             return(
                                 <li className='list-items'> <a href='#'> {category.category} </a> </li>
                             )
