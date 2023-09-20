@@ -2,10 +2,10 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 
 export const getCategories = createAsyncThunk(
-    'getCatergories',
+    'getCategories',
     ()=>{
         const categories = fetch("http://localhost:5001/productCategories")
         .then((res)=>res.json());
-        return categories
+        return categories;
     }
 )
