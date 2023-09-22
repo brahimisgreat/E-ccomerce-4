@@ -5,7 +5,8 @@ const cors = require('cors');
 
 app.use(cors());
 
-app.use('/productCategories',productCategories)
+app.use('/',productCategories)
+
 
 const PORT = 5001;
 const server = app.listen(PORT , ()=>{
