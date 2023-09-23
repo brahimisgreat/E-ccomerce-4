@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategories } from '../../Redux/Category/actions';
-import { filterProducts } from '../../Redux/Products/productSlice';
+import { filterByPrice, filterProducts } from '../../Redux/Products/productSlice';
 import './_side-nav.scss';
 
 const SideNav = ()=>{
@@ -23,6 +23,18 @@ const SideNav = ()=>{
     const filterData = (selectedCategory)=>{
         const payload = {selectedCategory,products};
         dispatch(filterProducts(payload));
+    }
+
+    const setPriceLimit = (e,stateFlag)=>{
+        if(stateFlag==="max"){
+            setMaxPriceLimit(e.target.value);
+        }else if(stateFlag==="min"){
+            setMinPriceLimit(e.target.value);
+        }
+    }
+    const applyPriceFilter = ()=>{
+        const payload = {products,minPriceLimit,maxPriceLimit};
+        dispatch(filterByPrice(payload));
     }
 
     return(
@@ -81,6 +93,7 @@ const SideNav = ()=>{
                         min={10}
                         max={130}
                         step={10}
+                        onChange={(e)=>setPriceLimit(e,"min")}
                     />
                 </div>
                 <div>
@@ -91,9 +104,13 @@ const SideNav = ()=>{
                         min={10}
                         max={130}
                         step={10}
+                        onChange={(e)=>setPriceLimit(e,"max")}
                     />
                 </div>
-                <button className='btn btn-outline-dark my-3'> Apply Filter </button>
+                <button 
+                    className='btn btn-outline-dark my-3'
+                    onClick={applyPriceFilter}
+                > Apply Filter </button>
             </div>
         </div>
     )
