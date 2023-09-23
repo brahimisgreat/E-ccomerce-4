@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addCartItem } from '../../Redux/Cart/cartSlice';
 import { getProducts } from '../../Redux/Products/productAction';
 import './_products.scss';
@@ -28,7 +29,9 @@ const Products = ()=>{
                                 <img src={require('../../assets/images/shop/'+product.product_img)}/>
                             </div>
                             <div className='product-info'>
-                                <h5> <a href='#'>{product.product_name}</a> </h5>
+                                <h5>
+                                    <Link to="/productDetails"> {product.product_name} </Link>
+                                </h5>
                                 <p className='product-price'> ${product.price} </p>
                                 <div className='product-rating'>
                                     <i className='fa fa-star'/>

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getCategories } from '../../Redux/Category/actions';
 import './_cat-nav.scss';
 
@@ -15,6 +16,10 @@ const CatNav = ()=>{
         <>
             <div className='cat-nav-container container'>
                 <ul>
+                    <li className='list-items'>
+                        <Link to="/"> Home </Link>
+                    </li>
+
                     {
                         categories.map((category)=>{
                             if(category.parent_category_id === null){
