@@ -1,10 +1,15 @@
 import { useLocation } from "react-router-dom";
 import './_product-details.scss';
+import { useDispatch } from "react-redux";
+import { addCartItem } from "../../Redux/Cart/cartSlice";
 
 const ProductDetails = ()=>{
     const location = useLocation();
+    const disptach = useDispatch();
 
-    console.log(location);
+   const addToCart = ()=>{
+        disptach(addCartItem(location.state))
+   }
 
     return(
         <div>
@@ -30,7 +35,7 @@ const ProductDetails = ()=>{
                         <span> Some Product Description Given Here... </span>
                     </div>
 
-                    <div className="my-5">
+                    <div className="my-5" onClick={addToCart}>
                         <div className="btn btn-warning cart-button">
                             <div className="cart-icon-container">
                                 <i className="fa fa-shopping-cart"/>
