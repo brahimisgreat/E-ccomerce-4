@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { updateItemQuantity } from "../../../Redux/Cart/cartSlice";
+import { deleteCartItem, updateItemQuantity } from "../../../Redux/Cart/cartSlice";
 import "./_filled-cart.scss";
 
 const FilledCart = ()=>{
@@ -13,6 +13,10 @@ const FilledCart = ()=>{
             item
         };
         dispatch(updateItemQuantity(payload));
+    }
+
+    const deleteHandler = (item)=>{
+        dispatch(deleteCartItem(item));
     }
 
     return(
@@ -53,7 +57,7 @@ const FilledCart = ()=>{
                                                             <span> + </span>
                                                         </div>
                                                     </div>
-                                                    <div className="btn btn-outline-danger mx-4">
+                                                    <div className="btn btn-outline-danger mx-4" onClick={()=>deleteHandler(item)}>
                                                         <span> <i className="fa fa-trash mx-2"/> Remove Item </span>
                                                     </div>
                                                 </div>
