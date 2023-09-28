@@ -40,9 +40,13 @@
   
   .login-container{
     width: 15%;
-    color: white;
+    color: rgb(250, 250, 250);
     text-align: right;
     margin: 1.7em 0.2em 0 0;
+    display: flex;
+    justify-content: center;
+ 
+    
   }
   .login-container i,h5{
     display: inline-block;
@@ -91,3 +95,4 @@
     }
   }
 }
+

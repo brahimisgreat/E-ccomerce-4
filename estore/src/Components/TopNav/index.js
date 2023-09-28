@@ -1,9 +1,19 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './_top-nav.scss';
+import { GoogleLogin } from '@react-oauth/google';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { useState } from 'react';
+
+
 
 const TopNav = ()=>{
     const cartItemCount = useSelector(state=>state.cr.totalItems);
+    const [userDetail, setUserDetails] = useState();
+
+    const successHandler = ()=>{
+
+    }
 
     return(
         <div>
@@ -25,7 +35,16 @@ const TopNav = ()=>{
                 </div>
                 <div className='login-container p-0'>
                     <i className='fa fa-user-circle user-icon'/>
-                    <h5> <a href='#'> Login</a></h5> / <h5><a href='#'>Register</a></h5>
+                    <GoogleOAuthProvider clientId='578972643297-losiubloo15rafgrq1r05l0abdfpb453.apps.googleusercontent.com'>
+                    <GoogleLogin className="login"
+                            onSuccess={credentialResponse => {
+                                console.log(credentialResponse);
+                            }}
+                            onError={() => {
+                                console.log('Login Failed');
+                            }}
+/>
+                    </GoogleOAuthProvider>
                 </div>
                 <div className='cart-wishlist'>
                     <ul className='p-0'>
